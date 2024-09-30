@@ -14,7 +14,7 @@
                     </ul>
                 @endif
 
-                <form action="{{ route('admin.employee.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.employee.store') }}" method="POST">
                     @csrf
                     <div class="row row-cols-3 gb-3">
                         <x-input-field id="BusinessEntityID" name="BusinessEntityID" type="number"
@@ -43,11 +43,11 @@
                             classnameInput="form-control" label="HireDate" classnameLabel="form-label" />
                         <x-input-field id="VacationHours" name="VacationHours" type="number" classnameDiv="col mb-3"
                             classnameInput="form-control" label="VacationHours" classnameLabel="form-label" />
-                        <x-input-field id="SickLeaveHours" name="SickLeaveHours" type="number"
-                            classnameDiv="col mb-3" classnameInput="form-control" label="SickLeaveHours"
+                        <x-input-field id="SickLeaveHours" name="SickLeaveHours" type="number" classnameDiv="col mb-3"
+                            classnameInput="form-control" label="SickLeaveHours" classnameLabel="form-label" />
+                        <x-input-field id="ModifiedDate" name="ModifiedDate" type="datetime-local"
+                            classnameDiv="col mb-3" classnameInput="form-control" label="ModifiedDate"
                             classnameLabel="form-label" />
-                        <x-input-field id="ModifiedDate" name="ModifiedDate" type="datetime" classnameDiv="col mb-3"
-                            classnameInput="form-control" label="ModifiedDate" classnameLabel="form-label" />
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>

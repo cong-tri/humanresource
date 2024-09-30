@@ -26,7 +26,6 @@
                             <th scope="col">Job</th>
                             <th scope="col">BirthDate</th>
                             <th scope="col">Gender</th>
-                            <th scope="col">HireDate</th>
                             <th scope="col" colspan="2">Actions</th>
                         </tr>
                     </thead>
@@ -39,8 +38,10 @@
                                 <td>{{ $employee->getJobTitle() }}</td>
                                 <td>{{ $employee->getBirthDate() }}</td>
                                 <td>{{ $employee->getGender() }}</td>
-                                <td>{{ $employee->getHireDate() }}</td>
-                                <td>
+                                <td class="text-center">
+                                    <a href="" class="btn btn-success">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
                                     <a class="btn btn-primary" href="">
                                         <i class="bi-pencil"></i>
                                     </a>

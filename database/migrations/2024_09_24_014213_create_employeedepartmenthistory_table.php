@@ -24,7 +24,6 @@ return new class extends Migration
             $table -> foreign("BusinessEntityID") -> references(columns: "BusinessEntityID") -> on(table: "employee");
             $table -> foreign("DepartmentID") -> references(columns: "DepartmentID") -> on(table: "department");
             $table -> foreign("ShiftID") -> references(columns: "ShiftID") -> on(table: "shift");
-            
         });
     }
 
