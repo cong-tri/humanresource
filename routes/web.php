@@ -22,6 +22,12 @@ Route::post(
 )
     ->name("admin.employee.store");
 
+Route::delete(
+    '/admin/employee/{BusinessEntityID}/delete',
+    'App\Http\Controllers\Admin\AdminEmployeeController@delete'
+)
+    ->name("admin.employee.delete");
+
 Route::get(
     '/admin/department',
     'App\Http\Controllers\Admin\AdminDepartmentController@index'

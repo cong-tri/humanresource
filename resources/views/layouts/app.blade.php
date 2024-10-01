@@ -7,27 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ asset('/css/admin.css') }}">
     <style>
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 16.666667%;
-            /*(col-2)*/
-            background-color: #2a2b2c;
-            color: white;
-            padding: 1rem;
-        }
 
-        .content {
-            margin-left: 16.666667%;
-            padding: 1rem;
-        }
-
-        .footer {
-            margin-left: 16.666667%;
-        }
     </style>
     <title>@yield('title', 'Admin - Human Resources')</title>
 </head>

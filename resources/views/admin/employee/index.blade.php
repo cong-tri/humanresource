@@ -26,7 +26,7 @@
         </div>
 
         <div class="card-body">
-            <div class="table-responsive w-auto">
+            <div class="table-responsive w-auto overflow-auto" style="height: 500px">
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr class="text-center">
@@ -57,7 +57,8 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="" method="POST">
+                                    <form action="{{ route('admin.employee.delete', $employee->getBusinessEntityID()) }}"
+                                        method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger">
@@ -69,54 +70,6 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="d-flex justify-content-center">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            @if ($employees->onFirstPage())
-                                <li class="page-item disabled">
-                                    <span class="page-link">Previous</span>
-                                </li>
-                            @else
-                                <li class="page-item">
-                                    <a class="page-link" href="{{ $employees->previousPageUrl() }}"
-                                        rel="prev">Previous</a>
-                                </li>
-                            @endif
-
-                            @foreach ($employees->links()->elements as $element)
-                                @if (is_string($element))
-                                    <li class="page-item disabled">
-                                        <span class="page-link">{{ $element }}</span>
-                                    </li>
-                                @endif
-
-                                @if (is_array($element))
-                                    @foreach ($element as $page => $url)
-                                        @if ($page == $employees->currentPage())
-                                            <li class="page-item active">
-                                                <span class="page-link">{{ $page }}</span>
-                                            </li>
-                                        @else
-                                            <li class="page-item">
-                                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
-                                            </li>
-                                        @endif
-                                    @endforeach
-                                @endif
-                            @endforeach
-
-                            @if ($employees->hasMorePages())
-                                <li class="page-item">
-                                    <a class="page-link" href="{{ $employees->nextPageUrl() }}" rel="next">Next</a>
-                                </li>
-                            @else
-                                <li class="page-item disabled">
-                                    <span class="page-link">Next</span>
-                                </li>
-                            @endif
-                        </ul>
-                    </nav>
-                </div>
             </div>
         </div>
     </div>

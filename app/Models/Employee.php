@@ -24,6 +24,7 @@ class Employee extends Model
         'SickLeaveHours',
         'ModifiedDate'
     ];
+    protected $primaryKey = "BusinessEntityID";
      /**
      * The attributes that should be hidden for serialization.
      *

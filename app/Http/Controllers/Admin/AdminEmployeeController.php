@@ -17,13 +17,9 @@ class AdminEmployeeController extends Controller
 
         if ($request->has('txtSearch')) {
             $search = $request->query('txtSearch');
-            $employees = Employee::where('NationalIDNumber', 'like', '%' . $search . '%')
-                ->orWhere('LoginID', 'like', '%' . $search . '%')
-                ->orWhere('JobTitle', 'like', '%' . $search . '%')
-                ->orWhere('BirthDate', 'like', '%' . $search . '%')
-                ->get();
+            $employees = Employee::where('BusinessEntityID', $search)->get();
         } else {
-            $employees = Employee::paginate(10);
+            $employees = Employee::all();
         }
 
         // $employees = Employee::paginate(10);
@@ -44,6 +40,14 @@ class AdminEmployeeController extends Controller
         Employee::create($request->all());
 
         return back();
+    }
+    public function delete($BusinessEntityID)
+    {
+        $employee = Employee::where(column: 'BusinessEntityID', operator: $BusinessEntityID)->firstOrFail();
+        $employee->delete();
+
+        // $employee = Employee::where(column: 'BusinessEntityID', operator: $BusinessEntityID)-> delete();
+        return redirect()->route('admin.employee.index')->with('success', 'Employee removed successfully');
     }
 }
 
