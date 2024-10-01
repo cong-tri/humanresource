@@ -13,6 +13,16 @@
                     <x-form-add />
                 </div>
             </div>
+            <div class="mt-4">
+                <form action="{{ route('admin.employee.index') }}" method="GET">
+                    @csrf
+                    <x-input-field id="txtSearch" name="txtSearch" type="number" classnameDiv="row g-0"
+                        classnameInput="col form-control" label="Search" classnameLabel="col-3 form-label" />
+                    <div class="my-3">
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Search</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <div class="card-body">
