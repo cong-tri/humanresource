@@ -49,10 +49,12 @@
                                 <td>{{ $employee->getBirthDate() }}</td>
                                 <td>{{ $employee->getGender() }}</td>
                                 <td class="text-center">
-                                    <a href="" class="btn btn-success">
+                                    <a href="{{ route('admin.employee.show', ['BusinessEntityID' => $employee->getBusinessEntityID()]) }}"
+                                        class="btn btn-success">
                                         <i class="bi bi-eye"></i>
                                     </a>
-                                    <a class="btn btn-primary" href="">
+                                    <a class="btn btn-primary"
+                                        href="{{ route('admin.employee.edit', ['BusinessEntityID' => $employee->getBusinessEntityID()]) }}">
                                         <i class="bi-pencil"></i>
                                     </a>
                                 </td>

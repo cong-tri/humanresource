@@ -22,6 +22,24 @@ Route::post(
 )
     ->name("admin.employee.store");
 
+Route::get(
+    '/admin/employee/{BusinessEntityID}/show',
+    'App\Http\Controllers\Admin\AdminEmployeeController@show'
+)
+    ->name("admin.employee.show");
+
+Route::get(
+    '/admin/employee/{BusinessEntityID}/edit',
+    'App\Http\Controllers\Admin\AdminEmployeeController@edit'
+)
+    ->name("admin.employee.edit");
+
+Route::put(
+    '/admin/employee/{BusinessEntityID}/update',
+    'App\Http\Controllers\Admin\AdminEmployeeController@update'
+)
+    ->name("admin.employee.update");
+
 Route::delete(
     '/admin/employee/{BusinessEntityID}/delete',
     'App\Http\Controllers\Admin\AdminEmployeeController@delete'

@@ -41,6 +41,52 @@ class AdminEmployeeController extends Controller
 
         return back();
     }
+    public function show($BusinessEntityID)
+    {
+        $viewData = [];
+        $employee = Employee::findOrFail(id: $BusinessEntityID);
+        $viewData["title"] = "Admin - Employee Detail - Human Resource";
+        return view(view: 'admin.employee.show', data: compact(var_name: 'employee'))->with(key: "viewData", value: $viewData);
+    }
+    public function edit($BusinessEntityID){
+        $viewData = [];
+        $viewData['title'] = 'Admin Page - Edit Product - Human Resource';
+        $employee = Employee::findOrFail(id: $BusinessEntityID);
+        return view(view: 'admin.employee.edit', data: compact(var_name: 'employee'))->with(key: "viewData", value: $viewData);
+    }
+    public function update(Request $request, $BusinessEntityID)
+    {
+        $request->validate([
+            "NationalIDNumber" => "required|max:255",
+            "LoginID" => "required|max:255",
+            "OrganizationNode" => "required|max:255",
+            'OrganizationLevel' => "required|numeric|gt:0",
+            "JobTitle" => "required|max:255",
+            "BirthDate" => "required|date",
+            "MaritalStatus" => "required|max:255",
+            "Gender" => "required|max:2",
+            "HireDate" => "required|date",
+            "VacationHours" => "required|numeric|gt:0",
+            "SickLeaveHours" => "required|numeric|gt:0"
+        ]);
+
+        $employee = Employee::findOrFail($BusinessEntityID);
+        $employee->setNationalIDNumber($request->input('NationalIDNumber'));
+        $employee->setLoginID($request->input('LoginID'));
+        $employee->setOrganizationNode($request->input('OrganizationNode'));
+        $employee->setOrganizationLevel($request->input('OrganizationLevel'));
+        $employee->setJobTitle($request->input('JobTitle'));
+        $employee->setBirthDate($request->input('BirthDate'));
+        $employee->setMaritalStatus($request->input('MaritalStatus'));
+        $employee->setGender($request->input('Gender'));
+        $employee->setHireDate($request->input('HireDate'));
+        $employee->setVacationHours($request->input('VacationHours'));
+        $employee->setSickLeaveHours($request->input('SickLeaveHours'));
+        $employee->setModifiedDate(Carbon::now());
+
+        $employee->save();
+        return redirect()->route('admin.employee.index')->with("success", "Updated Successfully");
+    }
     public function delete($BusinessEntityID)
     {
         $employee = Employee::where(column: 'BusinessEntityID', operator: $BusinessEntityID)->firstOrFail();
@@ -50,4 +96,3 @@ class AdminEmployeeController extends Controller
         return redirect()->route('admin.employee.index')->with('success', 'Employee removed successfully');
     }
 }
-
