@@ -32,7 +32,7 @@ class Employee extends Model
      */
     public function employeeHistories()
     {
-        return $this->hasMany(EmployeeDepartmentHistory::class);
+        return $this->hasMany(EmployeeDepartmentHistory::class, 'BusinessEntityID', 'BusinessEntityID');
     }
     public function getBusinessEntityID(): mixed
     {

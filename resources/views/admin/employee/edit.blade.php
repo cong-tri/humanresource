@@ -3,7 +3,7 @@
 @section('content')
     <div class="card mb-4">
         <div class="card-header">
-            Edit Product
+            <h2 class="fw-bold">Edit Product</h2>
         </div>
         <div class="card-body">
             @if ($errors->any())
@@ -59,7 +59,7 @@
                         classnameInput="form-control" label="ModifiedDate" classnameLabel="form-label"
                         value="{{ $employee->getModifiedDate() }}" />
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg w-100">Edit</button>
+                <button type="submit" class="btn btn-primary btn-lg w-100">Save Change</button>
             </form>
         </div>
     </div>

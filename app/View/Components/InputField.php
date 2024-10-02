@@ -8,9 +8,6 @@ use Illuminate\View\Component;
 
 class InputField extends Component
 {
-    /**
-     * Create a new component instance.
-     */
     public $id;
     public $name;
     public $type;
@@ -39,9 +36,9 @@ class InputField extends Component
         $readonly = false,
         $value = null,
         $autofocus = false,
-        $autocomplete = 'off')
+        $autocomplete = 'off'
+        )
     {
-        //
         $this->id = $id;
         $this->name = $name;
         $this->type = $type;
@@ -58,9 +55,6 @@ class InputField extends Component
         $this->autocomplete = $autocomplete;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View|Closure|string
     {
         return view('components.input-field');

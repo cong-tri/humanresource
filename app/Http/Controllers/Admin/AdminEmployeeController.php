@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use App\Models\EmployeeDepartmentHistory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -45,10 +46,14 @@ class AdminEmployeeController extends Controller
     {
         $viewData = [];
         $employee = Employee::findOrFail(id: $BusinessEntityID);
+
+        // $departmentHistory = EmployeeDepartmentHistory::findOrFail(id: $BusinessEntityID);
+
         $viewData["title"] = "Admin - Employee Detail - Human Resource";
-        return view(view: 'admin.employee.show', data: compact(var_name: 'employee'))->with(key: "viewData", value: $viewData);
+        return view(view: 'admin.employee.show', data: compact('employee'))->with(key: "viewData", value: $viewData);
     }
-    public function edit($BusinessEntityID){
+    public function edit($BusinessEntityID)
+    {
         $viewData = [];
         $viewData['title'] = 'Admin Page - Edit Product - Human Resource';
         $employee = Employee::findOrFail(id: $BusinessEntityID);

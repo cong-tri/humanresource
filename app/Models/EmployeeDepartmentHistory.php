@@ -9,17 +9,31 @@ class EmployeeDepartmentHistory extends Model
 {
     use HasFactory;
     protected $table = "employeedepartmenthistory";
+    protected $fillable = [
+        'BusinessEntityID',
+        'DepartmentID',
+        'ShiftID',
+        'StartDate',
+        'EndDate',
+        'ModifiedDate'
+    ];
+    protected $primaryKey = [
+        'BusinessEntityID',
+        'DepartmentID',
+        'ShiftID',
+        'StartDate',
+    ];
     public function department()
     {
-        return $this->belongsTo(Department::class, "DepartmentID");
+        return $this->belongsTo(related: Department::class, foreignKey: "DepartmentID");
     }
     public function employee()
     {
-        return $this->belongsTo(Employee::class, "BusinessEntityID");
+        return $this->belongsTo(related: Employee::class, foreignKey: "BusinessEntityID");
     }
     public function shift()
     {
-        return $this->belongsTo(Shift::class, "ShiftID");
+        return $this->belongsTo(related: Shift::class, foreignKey: "ShiftID");
     }
     public function getBusinessEntityID(): mixed
     {
