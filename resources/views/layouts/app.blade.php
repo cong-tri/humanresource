@@ -30,6 +30,10 @@
                 <li><a href="{{ route('admin.shift.index') }}" class="nav-link text-white">Admin - Shift</a></li>
                 <li><a href="{{ route('admin.employeedepartmenthistory.index') }}" class="nav-link text-white">Admin -
                         Employee Department History</a></li>
+                <li><a href="{{ route('admin.report.employee') }}" class="nav-link text-white">Admin -
+                        Report - Employee</a></li>
+                <li><a href="{{ route('admin.report.shift') }}" class="nav-link text-white">Admin -
+                        Report - Shift</a></li>
             </ul>
         </div>
         <!-- sidebar -->

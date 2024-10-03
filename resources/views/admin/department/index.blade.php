@@ -27,18 +27,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($viewData['department'] as $department)
+                        @foreach ($departments as $department)
                             <tr>
                                 <td>{{ $department->getDepartmentID() }}</td>
                                 <td>{{ $department->getName() }}</td>
                                 <td>{{ $department->getGroupName() }}</td>
-                                <td>
-                                    <a class="btn btn-primary" href="">
+                                <td class="text-center">
+                                    <a href="{{ route('admin.department.show', ['DepartmentID' => $department->getDepartmentID()]) }}"
+                                        class="btn btn-success">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                    <a class="btn btn-primary"
+                                        href="{{ route('admin.department.edit', ['DepartmentID' => $department->getDepartmentID()]) }}">
                                         <i class="bi-pencil"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="" method="POST">
+                                    <form action="{{ route('admin.department.delete', $department->getDepartmentID()) }}"
+                                        method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger">

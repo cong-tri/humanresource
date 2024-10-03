@@ -9,10 +9,27 @@ class Department extends Model
 {
     use HasFactory;
     protected $table = "department";
-    public function employeeHistories(){
-        return $this-> hasMany(EmployeeDepartmentHistory::class);
-    }
 
+    protected $fillable = [
+        'DepartmentID',
+        'Name',
+        'GroupName',
+        'ModifiedDate'
+    ];
+    protected $primaryKey = "DepartmentID";
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    public function employeeHistories()
+    {
+        return $this->hasMany(EmployeeDepartmentHistory::class, 'DepartmentID', 'DepartmentID');
+    }
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class, 'BusinessEntityID', 'BusinessEntityID');
+    }
     public function getDepartmentID(): mixed
     {
         return $this

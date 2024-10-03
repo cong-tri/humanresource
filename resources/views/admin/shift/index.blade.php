@@ -30,19 +30,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($viewData['shift'] as $shift)
+                        @foreach ($viewData['shifts'] as $shift)
                             <tr>
                                 <td>{{ $shift->getShiftID() }}</td>
                                 <td>{{ $shift->getName() }}</td>
                                 <td>{{ $shift->getStartTime() }}</td>
                                 <td>{{ $shift->getEndTime() }}</td>
-                                <td>
-                                    <a class="btn btn-primary" href="">
+                                <td class="text-center">
+                                    {{-- <a href="{{ route('admin.shift.show', ['ShiftID' => $shift->getShiftID()]) }}"
+                                        class="btn btn-success">
+                                        <i class="bi bi-eye"></i>
+                                    </a> --}}
+                                    <a class="btn btn-primary"
+                                        href="{{ route('admin.shift.edit', ['ShiftID' => $shift->getShiftID()]) }}">
                                         <i class="bi-pencil"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="" method="POST">
+                                    <form action="{{ route('admin.shift.delete', $shift->getShiftID()) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger">

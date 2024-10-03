@@ -47,8 +47,6 @@ class AdminEmployeeController extends Controller
         $viewData = [];
         $employee = Employee::findOrFail(id: $BusinessEntityID);
 
-        // $departmentHistory = EmployeeDepartmentHistory::findOrFail(id: $BusinessEntityID);
-
         $viewData["title"] = "Admin - Employee Detail - Human Resource";
         return view(view: 'admin.employee.show', data: compact('employee'))->with(key: "viewData", value: $viewData);
     }

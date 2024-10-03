@@ -13,7 +13,7 @@
                         @endforeach
                     </ul>
                 @endif
-                <form action="" method="POST">
+                <form action="{{ route('admin.shift.store') }}" method="POST">
                     @csrf
                     <div class="row row-cols-2 gb-3">
                         <x-input-field id="ShiftID" name="ShiftID" type="number" classnameDiv="col mb-3"
@@ -24,8 +24,6 @@
                             classnameInput="form-control" label="StartTime" classnameLabel="form-label" />
                         <x-input-field id="EndTime" name="EndTime" type="time" classnameDiv="col mb-3"
                             classnameInput="form-control" label="EndTime" classnameLabel="form-label" />
-                        <x-input-field id="ModifiedDate" name="ModifiedDate" type="datetime" classnameDiv="col mb-3"
-                            classnameInput="form-control" label="ModifiedDate" classnameLabel="form-label" />
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>

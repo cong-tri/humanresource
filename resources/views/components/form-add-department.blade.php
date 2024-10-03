@@ -14,7 +14,7 @@
                         @endforeach
                     </ul>
                 @endif
-                <form action="" method="POST">
+                <form action="{{ route('admin.department.store') }}" method="POST">
                     @csrf
                     <div class="row row-cols-2 gb-3">
                         <x-input-field id="DepartmentID" name="DepartmentID" type="number" classnameDiv="col mb-3"
@@ -24,8 +24,6 @@
                             classnameInput="form-control" label="Name" classnameLabel="form-label" />
                         <x-input-field id="GroupName" name="GroupName" type="text" classnameDiv="col mb-3"
                             classnameInput="form-control" label="GroupName" classnameLabel="form-label" />
-                        <x-input-field id="ModifiedDate" name="ModifiedDate" type="datetime" classnameDiv="col mb-3"
-                            classnameInput="form-control" label="ModifiedDate" classnameLabel="form-label" />
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>
